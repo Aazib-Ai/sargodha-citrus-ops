@@ -1,0 +1,255 @@
+# Implementation Plan
+
+- [ ] 1. Project Setup and Configuration
+  - [ ] 1.1 Initialize Next.js 14 project with App Router, TypeScript, TailwindCSS, and ESLint
+    - Run `npx create-next-app@latest` with TypeScript and App Router options
+    - Configure TailwindCSS with mobile-first breakpoints
+    - _Requirements: 8.1, 8.2_
+  - [ ] 1.2 Install and configure Shadcn/UI with mobile-optimized theme
+    - Run `npx shadcn-ui@latest init`
+    - Install required components: Button, Card, Input, Select, Form, Dialog, Toast, Avatar
+    - _Requirements: 8.1_
+  - [ ] 1.3 Set up Supabase client and environment variables
+    - Create Supabase project and get API keys
+    - Configure `@supabase/supabase-js` and `@supabase/ssr` for Next.js
+    - Set up environment variables for SUPABASE_URL and SUPABASE_ANON_KEY
+    - _Requirements: 1.1, 1.2_
+  - [ ] 1.4 Configure Cloudflare R2 client for image uploads
+    - Set up AWS SDK v3 with R2-compatible S3 client
+    - Configure environment variables for R2 credentials
+    - _Requirements: 3.3, 5.2_
+  - [ ] 1.5 Set up PWA configuration with next-pwa
+    - Configure manifest.json with app name and icons
+    - Set up service worker for caching
+    - _Requirements: 8.2, 8.3_
+
+- [ ] 2. Database Schema and Supabase Setup
+  - [ ] 2.1 Create database tables in Supabase
+    - Create partners, transactions, orders, order_status_history, journal_entries, invited_emails tables
+    - Set up foreign key relationships and constraints
+    - _Requirements: 2.1, 3.1, 4.1, 5.1, 7.1_
+  - [ ] 2.2 Configure Row Level Security (RLS) policies
+    - Enable RLS on all tables
+    - Create policies for authenticated partner access
+    - _Requirements: 1.1, 7.1_
+  - [ ] 2.3 Create TypeScript types matching database schema
+    - Define types in `types/index.ts` for Partner, Transaction, Order, JournalEntry
+    - Create Zod schemas for validation
+    - _Requirements: 3.1, 4.1, 5.1_
+  - [ ] 2.4 Write property test for transaction validation
+
+
+
+
+
+    - **Property 10: Transaction Validation**
+    - **Validates: Requirements 3.1**
+  - [ ]* 2.5 Write property test for order validation
+    - **Property 11: Order Validation**
+    - **Validates: Requirements 4.1**
+  - [ ]* 2.6 Write property test for journal entry validation
+    - **Property 12: Journal Entry Validation**
+    - **Validates: Requirements 5.1**
+
+- [ ] 3. Authentication System
+  - [ ] 3.1 Implement Supabase Auth with email/password
+    - Create auth utility functions in `lib/supabase/auth.ts`
+    - Set up session management with cookies
+    - _Requirements: 1.2, 1.3, 1.4_
+  - [ ] 3.2 Create login page with mobile-optimized form
+    - Build `/app/(auth)/login/page.tsx` with Shadcn form components
+    - Handle login errors and loading states
+    - _Requirements: 1.2, 1.3_
+  - [ ] 3.3 Implement invite-only registration check
+    - Create function to verify email against invited_emails table
+    - Block registration for non-invited emails
+    - _Requirements: 1.5_
+  - [ ] 3.4 Create auth middleware for protected routes
+    - Implement middleware.ts to check authentication
+    - Redirect unauthenticated users to login
+    - _Requirements: 1.1_
+  - [ ]* 3.5 Write property test for invite-only registration
+    - **Property 15: Invite-Only Registration**
+    - **Validates: Requirements 1.5**
+
+- [ ] 4. Core Layout and Navigation
+  - [ ] 4.1 Create mobile-first dashboard layout
+    - Build `/app/(dashboard)/layout.tsx` with bottom navigation
+    - Implement responsive sidebar for desktop
+    - _Requirements: 8.1_
+  - [ ] 4.2 Build bottom navigation component
+    - Create `MobileNav` with icons for Dashboard, Ledger, Transactions, Orders, Journal
+    - Highlight active route
+    - _Requirements: 8.1_
+  - [ ] 4.3 Create Floating Action Button (FAB) component
+    - Build `QuickAddFAB` for quick transaction/order entry
+    - Position fixed at bottom-right on mobile
+    - _Requirements: 8.1_
+
+- [ ] 5. Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [ ] 6. Image Upload Service
+  - [ ] 6.1 Create R2 upload API route
+    - Build `/app/api/upload/route.ts` for presigned URL generation
+    - Handle file validation (type, size limits)
+    - _Requirements: 3.3, 5.2_
+  - [ ] 6.2 Build ImageUpload component
+    - Create reusable component with camera/gallery picker
+    - Show upload progress and preview
+    - _Requirements: 3.3, 5.2_
+
+- [ ] 7. Financial Calculation Utilities
+  - [ ] 7.1 Implement margin calculation functions
+    - Create `calculateNetMargin(variant, sellPrice, quantity)` in `lib/utils/calculations.ts`
+    - Handle both 10kg (1720 PKR) and 5kg (860 PKR) variants
+    - _Requirements: 4.2, 4.3_
+  - [ ]* 7.2 Write property test for net margin calculation
+    - **Property 2: Net Margin Calculation**
+    - **Validates: Requirements 4.2, 4.3**
+  - [ ] 7.3 Implement profit calculation functions
+    - Create `calculateProfit(revenue, fixedCosts, expenses)`
+    - Create `calculatePartnerPayout(contribution, profit)`
+    - _Requirements: 6.3, 6.7, 6.8_
+  - [ ]* 7.4 Write property test for profit calculation
+    - **Property 6: Profit Calculation**
+    - **Validates: Requirements 6.3, 6.6**
+  - [ ]* 7.5 Write property test for partner payout calculation
+    - **Property 7: Partner Payout Calculation**
+    - **Validates: Requirements 6.7, 6.8**
+  - [ ] 7.6 Implement ROI and return rate calculations
+    - Create `calculateROI(profit, totalCapital)`
+    - Create `calculateReturnRate(returnedOrders, totalOrders)`
+    - _Requirements: 6.4, 6.5_
+  - [ ]* 7.7 Write property test for ROI calculation
+    - **Property 8: ROI Calculation**
+    - **Validates: Requirements 6.4**
+  - [ ]* 7.8 Write property test for return rate calculation
+    - **Property 9: Return Rate Calculation**
+    - **Validates: Requirements 6.5**
+
+- [ ] 8. Transaction Management
+  - [ ] 8.1 Create transaction service with CRUD operations
+    - Build `lib/services/transactions.ts` with create, list, getById functions
+    - Implement Server Actions for database operations
+    - _Requirements: 3.1, 3.4, 3.5_
+  - [ ]* 8.2 Write property test for transaction contribution invariant
+    - **Property 1: Transaction Contribution Invariant**
+    - **Validates: Requirements 2.1, 2.2**
+  - [ ]* 8.3 Write property test for transaction immutability
+    - **Property 5: Transaction Immutability**
+    - **Validates: Requirements 7.3**
+  - [ ] 8.4 Build transaction form component
+    - Create form with amount, category dropdown, description, optional receipt upload
+    - Mobile-optimized with large inputs
+    - _Requirements: 3.1, 3.2, 3.3_
+  - [ ] 8.5 Build transaction list with filters
+    - Create filterable list view with category, partner, date range filters
+    - Show receipt indicator badge
+    - _Requirements: 3.4, 3.6_
+  - [ ]* 8.6 Write property test for transaction filtering
+    - **Property 14: Transaction Filter Correctness**
+    - **Validates: Requirements 3.6**
+  - [ ]* 8.7 Write property test for chronological ordering
+    - **Property 13: Chronological Ordering**
+    - **Validates: Requirements 3.4, 5.3**
+  - [ ] 8.8 Create transactions page
+    - Build `/app/(dashboard)/transactions/page.tsx`
+    - Integrate form, list, and filters
+    - _Requirements: 3.4, 3.5, 3.6_
+
+- [ ] 9. Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [ ] 10. Partner Ledger
+  - [ ] 10.1 Create partner service for ledger calculations
+    - Build `lib/services/partners.ts` with contribution totals
+    - Calculate percentage of common pool per partner
+    - _Requirements: 2.3, 2.4, 2.5_
+  - [ ] 10.2 Build PartnerCard component
+    - Display partner name, total contribution, expenses, pool percentage
+    - Mobile-friendly card layout
+    - _Requirements: 2.3_
+  - [ ] 10.3 Create partner ledger page
+    - Build `/app/(dashboard)/ledger/page.tsx`
+    - Show all 3 partners with contribution breakdown
+    - _Requirements: 2.3, 2.5_
+
+- [ ] 11. Order Management
+  - [ ] 11.1 Create order service with status management
+    - Build `lib/services/orders.ts` with create, list, updateStatus functions
+    - Implement status transition validation
+    - _Requirements: 4.1, 4.4, 4.5_
+  - [ ]* 11.2 Write property test for order status transitions
+    - **Property 3: Order Status Transitions**
+    - **Validates: Requirements 4.5**
+  - [ ]* 11.3 Write property test for status change audit trail
+    - **Property 4: Status Change Audit Trail**
+    - **Validates: Requirements 4.6, 7.4**
+  - [ ] 11.4 Build order form component
+    - Create form with customer name, variant selector, quantity, sell price
+    - Auto-calculate and display net margin
+    - _Requirements: 4.1, 4.2, 4.3_
+  - [ ] 11.5 Build OrderCard with status selector
+    - Display order details with status badge
+    - Dropdown for valid status transitions
+    - _Requirements: 4.4, 4.5, 4.6_
+  - [ ] 11.6 Create orders page
+    - Build `/app/(dashboard)/orders/page.tsx`
+    - List orders with status filters
+    - _Requirements: 4.6_
+
+- [ ] 12. Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.
+
+- [ ] 13. Journal Feature
+  - [ ] 13.1 Create journal service
+    - Build `lib/services/journal.ts` with create and list functions
+    - Handle multiple image URLs per entry
+    - _Requirements: 5.1, 5.3_
+  - [ ] 13.2 Build journal entry form
+    - Create form with text area and multi-image upload
+    - Validate at least text or image required
+    - _Requirements: 5.1, 5.2_
+  - [ ] 13.3 Build JournalEntry timeline component
+    - Display entry with author, timestamp, content, images
+    - Timeline layout with date separators
+    - _Requirements: 5.3, 5.4_
+  - [ ] 13.4 Create journal page
+    - Build `/app/(dashboard)/journal/page.tsx`
+    - Reverse chronological timeline view
+    - _Requirements: 5.3, 5.4, 5.5_
+
+- [ ] 14. Analytics Dashboard
+  - [ ] 14.1 Create analytics service
+    - Build `lib/services/analytics.ts` with getDashboardStats function
+    - Aggregate revenue, expenses, profit, ROI, return rate
+    - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5_
+  - [ ] 14.2 Build StatCard component
+    - Display metric with label, value, optional trend indicator
+    - Mobile-friendly sizing
+    - _Requirements: 6.1, 6.2_
+  - [ ] 14.3 Build partner payout summary component
+    - Display each partner's contribution, profit share, total payout
+    - Clear visual breakdown
+    - _Requirements: 6.7, 6.8_
+  - [ ] 14.4 Create analytics dashboard page
+    - Build `/app/(dashboard)/page.tsx` as main dashboard
+    - Display all stats and partner payouts
+    - _Requirements: 6.1-6.9_
+
+- [ ] 15. Final Polish and PWA
+  - [ ] 15.1 Add loading states and skeletons
+    - Create skeleton components for cards and lists
+    - Add Suspense boundaries
+    - _Requirements: 8.3_
+  - [ ] 15.2 Implement toast notifications
+    - Add success/error toasts for all actions
+    - _Requirements: Error Handling_
+  - [ ] 15.3 Test PWA installation and offline behavior
+    - Verify manifest and service worker
+    - Test home screen installation
+    - _Requirements: 8.2_
+
+- [ ] 16. Final Checkpoint - Ensure all tests pass
+  - Ensure all tests pass, ask the user if questions arise.

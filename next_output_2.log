@@ -1,0 +1,242 @@
+
+> sargodha-citrus-ops@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+> [PWA] PWA support is disabled
+> [PWA] PWA support is disabled
+ ✓ Ready in 7.6s
+ ○ Compiling / ...
+ ✓ Compiled / in 8.3s (636 modules)
+ GET / 200 in 9199ms
+ ✓ Compiled in 961ms (302 modules)
+ HEAD / 200 in 41ms
+ GET / 200 in 54ms
+ ✓ Compiled in 556ms (285 modules)
+ ○ Compiling / ...
+ ⨯ ./src/components/layout/quick-add-fab.tsx:7:1
+Module not found: Can't resolve '@/components/ui/dropdown-menu'
+[0m [90m  5 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[0m
+[0m [90m  6 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m'next/navigation'[39m[0m
+[0m[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m {[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[0m
+[0m [90m  8 |[39m     [33mDropdownMenu[39m[33m,[39m[0m
+[0m [90m  9 |[39m     [33mDropdownMenuContent[39m[33m,[39m[0m
+[0m [90m 10 |[39m     [33mDropdownMenuItem[39m[33m,[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/components/layout/quick-add-fab.tsx:7:1
+Module not found: Can't resolve '@/components/ui/dropdown-menu'
+[0m [90m  5 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[0m
+[0m [90m  6 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m'next/navigation'[39m[0m
+[0m[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m {[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[0m
+[0m [90m  8 |[39m     [33mDropdownMenu[39m[33m,[39m[0m
+[0m [90m  9 |[39m     [33mDropdownMenuContent[39m[33m,[39m[0m
+[0m [90m 10 |[39m     [33mDropdownMenuItem[39m[33m,[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/components/layout/quick-add-fab.tsx:7:1
+Module not found: Can't resolve '@/components/ui/dropdown-menu'
+[0m [90m  5 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[0m
+[0m [90m  6 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m'next/navigation'[39m[0m
+[0m[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m {[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[0m
+[0m [90m  8 |[39m     [33mDropdownMenu[39m[33m,[39m[0m
+[0m [90m  9 |[39m     [33mDropdownMenuContent[39m[33m,[39m[0m
+[0m [90m 10 |[39m     [33mDropdownMenuItem[39m[33m,[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ GET / 500 in 7659ms
+ HEAD / 500 in 35ms
+ ⨯ ./src/components/layout/quick-add-fab.tsx:7:1
+Module not found: Can't resolve '@/components/ui/dropdown-menu'
+[0m [90m  5 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[0m
+[0m [90m  6 |[39m [36mimport[39m { useRouter } [36mfrom[39m [32m'next/navigation'[39m[0m
+[0m[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m {[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[0m
+[0m [90m  8 |[39m     [33mDropdownMenu[39m[33m,[39m[0m
+[0m [90m  9 |[39m     [33mDropdownMenuContent[39m[33m,[39m[0m
+[0m [90m 10 |[39m     [33mDropdownMenuItem[39m[33m,[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ✓ Compiled /_error in 2.3s (1233 modules)
+ GET / 200 in 705ms
+ ○ Compiling /ledger ...
+ ✓ Compiled /ledger in 870ms (1235 modules)
+ GET /ledger 200 in 1192ms
+ ○ Compiling /transactions ...
+ ⨯ ./src/components/transactions/transaction-list.tsx:3:1
+Module not found: Can't resolve '@/components/ui/badge'
+[0m [90m 1 |[39m [36mimport[39m { [33mTransaction[39m } [36mfrom[39m [32m'@/types'[39m[0m
+[0m [90m 2 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[0m
+[0m[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mBadge[39m } [36mfrom[39m [32m'@/components/ui/badge'[39m[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { [33mFileText[39m[33m,[39m [33mCalendar[39m[33m,[39m [33mUser[39m } [36mfrom[39m [32m'lucide-react'[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { format } [36mfrom[39m [32m'date-fns'[39m[0m
+[0m [90m 6 |[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/(dashboard)/transactions/page.tsx
+ ⨯ ./src/components/transactions/transaction-list.tsx:3:1
+Module not found: Can't resolve '@/components/ui/badge'
+[0m [90m 1 |[39m [36mimport[39m { [33mTransaction[39m } [36mfrom[39m [32m'@/types'[39m[0m
+[0m [90m 2 |[39m [36mimport[39m { [33mCard[39m[33m,[39m [33mCardContent[39m } [36mfrom[39m [32m'@/components/ui/card'[39m[0m
+[0m[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { [33mBadge[39m } [36mfrom[39m [32m'@/components/ui/badge'[39m[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { [33mFileText[39m[33m,[39m [33mCalendar[39m[33m,[39m [33mUser[39m } [36mfrom[39m [32m'lucide-react'[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { format } [36mfrom[39m [32m'date-fns'[39m[0m
+[0m [90m 6 |[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/app/(dashboard)/transactions/page.tsx
+ GET /transactions 500 in 1886ms
+ ✓ Compiled /_not-found in 1083ms (695 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 613ms (590 modules)
+ GET / 200 in 1132ms
+ ✓ Compiled /ledger in 221ms (604 modules)
+ GET /ledger 200 in 529ms
+ ○ Compiling /transactions ...
+ ✓ Compiled /transactions in 514ms (745 modules)
+ GET /transactions 200 in 950ms
+ ○ Compiling /transactions/new ...
+ ✓ Compiled /transactions/new in 9.5s (2898 modules)
+ GET /transactions/new 200 in 10804ms
+ ○ Compiling /orders ...
+ ✓ Compiled /orders in 977ms (2913 modules)
+ GET /orders 200 in 1345ms
+ ○ Compiling /journal ...
+ ✓ Compiled /journal in 1159ms (2949 modules)
+ ⨯ Error: Invalid src prop (https://example.com/orange1.jpg) on `next/image`, hostname "example.com" is not configured under images in your `next.config.js`
+See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host
+    at Array.map (<anonymous>)
+digest: "2783106426"
+ GET /journal 500 in 1774ms
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+> [PWA] PWA support is disabled
+> [PWA] PWA support is disabled
+ ✓ Ready in 7.3s
+ ○ Compiling / ...
+ ✓ Compiled / in 15.1s (1022 modules)
+ GET / 200 in 16113ms
+ ✓ Compiled in 1025ms (454 modules)
+ ○ Compiling /ledger ...
+ ✓ Compiled /ledger in 3.3s (1009 modules)
+ GET /ledger 200 in 3641ms
+ ○ Compiling /transactions ...
+ ✓ Compiled /transactions in 1372ms (1151 modules)
+ GET /transactions 200 in 1773ms
+ ○ Compiling /transactions/new ...
+ ✓ Compiled /transactions/new in 10.2s (2672 modules)
+ GET /transactions/new 200 in 10936ms
+ ○ Compiling /orders ...
+ ✓ Compiled /orders in 842ms (2687 modules)
+ GET /orders 200 in 1197ms
+ ○ Compiling /journal ...
+ ✓ Compiled /journal in 1618ms (2723 modules)
+ GET /journal 200 in 2057ms
+ ⨯ upstream image response failed for https://example.com/orange1.jpg 404
+ ⨯ ./src/lib/services/analytics.ts
+Error: Failed to read source code from /app/src/lib/services/analytics.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/lib/services/analytics.ts
+./src/app/(dashboard)/page.tsx
+ ⨯ ./src/lib/services/analytics.ts
+Error: Failed to read source code from /app/src/lib/services/analytics.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/lib/services/analytics.ts
+./src/app/(dashboard)/page.tsx
+ ⨯ ./src/lib/services/transactions.ts
+Error: Failed to read source code from /app/src/lib/services/transactions.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/lib/services/transactions.ts
+./src/app/(dashboard)/transactions/new/page.tsx
+ ⨯ ./src/lib/services/transactions.ts
+Error: Failed to read source code from /app/src/lib/services/transactions.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/lib/services/transactions.ts
+./src/app/(dashboard)/transactions/new/page.tsx
+ ⨯ ./src/lib/services/orders.ts
+Error: Failed to read source code from /app/src/lib/services/orders.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/lib/services/orders.ts
+./src/components/orders/order-card.tsx
+ ⨯ ./src/lib/services/orders.ts
+Error: Failed to read source code from /app/src/lib/services/orders.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/lib/services/orders.ts
+./src/components/orders/order-card.tsx
+ ⨯ ./src/lib/services/journal.ts
+Error: Failed to read source code from /app/src/lib/services/journal.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/lib/services/journal.ts
+./src/components/journal/journal-form.tsx
+ ⨯ ./src/lib/services/journal.ts
+Error: Failed to read source code from /app/src/lib/services/journal.ts
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/lib/services/journal.ts
+./src/components/journal/journal-form.tsx
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+> [PWA] PWA support is disabled
+> [PWA] PWA support is disabled
+ ✓ Ready in 8.7s
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+> [PWA] PWA support is disabled
+> [PWA] PWA support is disabled
+ ✓ Ready in 6.5s
